@@ -1,5 +1,4 @@
 # calculator
-Great! Here’s a professional and complete `README.md` file you can use for your **Calculator App** repository on GitHub:
 
 ---
 
