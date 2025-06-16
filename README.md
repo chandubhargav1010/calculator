@@ -41,7 +41,6 @@ A responsive, modern calculator web app built using **HTML**, **CSS**, and **Jav
 calculator-app/
 ├── index.html        # Main calculator app file
 ├── README.md         # Project documentation
-└── screenshot.png    # Optional: Screenshot image
 
 ````
 
@@ -70,7 +69,7 @@ calculator-app/
 
 ## chandu bhargav
 
-Made by [Your Name](https://github.com/chandubhargav1010/calculator)
+Made by [](https://github.com/chandubhargav1010/calculator)
 
 ```
 
