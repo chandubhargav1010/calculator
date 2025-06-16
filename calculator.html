@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculator App</title>
+  <style>
+     /* Reset some default styles */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #333;
+    }
+    .calculator {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+      padding: 30px 25px;
+      width: 320px;
+    }
+    .display {
+      background: #222;
+      color: #0f0;
+      font-size: 2.5rem;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: right;
+      letter-spacing: 2px;
+      box-shadow: inset 0 -4px 8px rgba(0,255,0,0.2);
+      user-select: none;
+      margin-bottom: 25px;
+      min-height: 60px;
+      overflow-x: auto;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+    button {
+      font-size: 1.2rem;
+      padding: 20px;
+      border: none;
+      border-radius: 12px;
+      background: #f0f0f0;
+      box-shadow: 0 5px #bdbdbd;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    button:active {
+      box-shadow: none;
+      transform: translateY(4px);
+    }
+    button.operator {
+      background: #ff9500;
+      color: white;
+      box-shadow: 0 5px #cc7a00;
+    }
+    button.operator:active {
+      box-shadow: none;
+      transform: translateY(4px);
+    }
+    button.equals {
+      background: #007aff;
+      color: white;
+      grid-column: span 2;
+      box-shadow: 0 5px #005ecb;
+    }
+    button.equals:active {
+      box-shadow: none;
+      transform: translateY(4px);
+    }
+    button.clear {
+      background: #ff3b30;
+      color: white;
+      box-shadow: 0 5px #b82a24;
+    }
+    button.clear:active {
+      box-shadow: none;
+      transform: translateY(4px);
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div id="display" class="display">0</div>
+    <div class="buttons">
+      <button onclick="appendNumber('7')">7</button>
+      <button onclick="appendNumber('8')">8</button>
+      <button onclick="appendNumber('9')">9</button>
+      <button class="operator" onclick="appendOperator('/')">÷</button>
+
+      <button onclick="appendNumber('4')">4</button>
+      <button onclick="appendNumber('5')">5</button>
+      <button onclick="appendNumber('6')">6</button>
+      <button class="operator" onclick="appendOperator('*')">×</button>
+
+      <button onclick="appendNumber('1')">1</button>
+      <button onclick="appendNumber('2')">2</button>
+      <button onclick="appendNumber('3')">3</button>
+      <button class="operator" onclick="appendOperator('-')">−</button>
+
+      <button onclick="appendNumber('0')">0</button>
+      <button onclick="appendNumber('.')">.</button>
+      <button class="clear" onclick="clearDisplay()">C</button>
+      <button class="operator" onclick="appendOperator('+')">+</button>
+
+      <button class="equals" onclick="calculate()">=</button>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+
+    function appendNumber(number) {
+      if (display.textContent === '0' && number !== '.') {
+        display.textContent = number;
+      } else if (display.textContent === 'Error') {
+        display.textContent = number;
+      } else {
+        display.textContent += number;
+      }
+    }
+
+    function appendOperator(operator) {
+      const lastChar = display.textContent.slice(-1);
+      if (['+', '-', '*', '/'].includes(lastChar)) {
+        display.textContent = display.textContent.slice(0, -1) + operator;
+      } else {
+        display.textContent += operator;
+      }
+    }
+
+    function clearDisplay() {
+      display.textContent = '0';
+    }
+
+    function calculate() {
+      try {
+        // Replace multiplication and division symbols for eval
+        let expression = display.textContent.replace(/÷/g, '/').replace(/×/g, '*');
+        let result = eval(expression);
+        display.textContent = result.toString();
+      } catch {
+        display.textContent = 'Error';
+      }
+    }
+  </script>
+</body>
+</html>
