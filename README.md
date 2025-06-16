@@ -51,11 +51,11 @@ calculator-app/
 1. **Clone the repo**
    ```bash
    git clone https://github.com/your-username/calculator-app.git
-````
 
 2. **Open the app**
    Just open the `index.html` file in any modern browser.
 
+````
 ---
 
 ## 📈 Future Improvements (optional ideas)
@@ -72,4 +72,10 @@ calculator-app/
 Made by [chandu bhargav](https://github.com/chandubhargav1010/calculator)
 
 ```
+
+
+
+
+
+
 
