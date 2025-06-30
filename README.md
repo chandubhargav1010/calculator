@@ -71,9 +71,6 @@ calculator-app/
 
 Made by [chandu bhargav](https://github.com/chandubhargav1010/calculator)
 
-```
-
-
 
 
 
